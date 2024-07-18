@@ -124,6 +124,8 @@ public class AuthForm {
                             passwordTf.setText("");
                             emailTf.setText("");
                             JOptionPane.showMessageDialog(null, "Account created successfully, now proceed with login!");
+                            frame.setVisible(false);
+                            login(true);
                         } else {
                             Border newBorder = new MatteBorder(0,0,2,0, Color.RED);
                             usernameTf.setBorder(newBorder);
@@ -297,10 +299,23 @@ public class AuthForm {
                             if(usernameTf.getText().equals(user.getUsername())){
                                 if(passwordTf.getText().equals(user.getPassword())){
                                     JOptionPane.showMessageDialog(null, "Welcome back "+user.getUsername());
+                                   new MatteBorder(0,0,2,0,new Color(3, 231, 246));
+                                    usernameTf.setBorder(border);
+                                    passwordTf.setBorder(border);
+                                    usernameTf.setText("");
+                                    passwordTf.setText("");
+                                    errorUserName.setText("");
+                                    errorPassword.setText("");
                                 }else{
+                                    Border bordern = new MatteBorder(0,0,2,0,Color.RED);
+                                    passwordTf.setBorder(bordern);
+                                    errorPassword.setText("");
                                     errorPassword.setText("Incorrect password!");
                                 }
                             }else{
+                                Border bordern = new MatteBorder(0,0,2,0,Color.RED);
+                                usernameTf.setBorder(bordern);
+                                errorUserName.setText("");
                                 errorUserName.setText("Incorrect Username please recheck!");
                             }
                         }
